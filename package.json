@@ -1,0 +1,78 @@
+{
+  "name": "contracter-js",
+  "description": "JS package for Contracter by Network Leads",
+  "version": "1.0.3",
+  "homepage": "https://github.com/Network-Leads/contracts-js#readme",
+  "author": "Niv Apo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Network-Leads/contracts-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Network-Leads/contracts-js/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "api",
+    "base",
+    "downloads",
+    "maintainer",
+    "maintainers",
+    "npm",
+    "npm-api",
+    "package",
+    "repo",
+    "repos",
+    "repositories",
+    "repository"
+  ],
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "base",
+        "download-stats"
+      ]
+    },
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  },
+  "devDependencies": {
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^6.1.4"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "clone-deep": "^4.0.1",
+    "crypto": "^1.0.1",
+    "download-stats": "^0.3.4",
+    "JSONStream": "^1.3.5",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "paged-request": "^2.0.2",
+    "qs": "^6.10.3"
+  }
+}
