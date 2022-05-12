@@ -1,44 +1,54 @@
-# React Contracts by Network Leads
+# Contracter.io API
 
-React components for Contracts
 
-[![build status](https://img.shields.io/npm/l/@network-leads/react-contracts-js)](https://www.npmjs.com/package/@network-leads/react-contracts-js)
-[![npm version](https://img.shields.io/npm/v/@network-leads/react-contracts-js)](https://www.npmjs.com/package/@network-leads/react-contracts-js)
+Use [Contracter.io](http://www.contracter.io) as an ES module.
 
-This is a package to install the React fron-end plugin of creating, editing & signing contracts.
-To interact with the API - see [contracts-js](https://github.com/network-leads/contracts-js)
+[![build status](https://img.shields.io/npm/l/contracter-js)](https://www.npmjs.com/package/contracter-js)
+[![npm version](https://img.shields.io/npm/v/contracter-js)](https://www.npmjs.com/package/contracter-js)
 
-### Minimal example
+## Installation
 
-First, install react-contracts-js and
-[contracts-js](https://github.com/network-leads/contracts-js).
+Use `npm` to install the Contracter.js module:
 
 ```sh
-npm install @network-leads/react-contracts-js
+npm install contracter-js
 ```
 
-#### Using hooks
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Contracts from "@network-leads/react-contracts-js";
+## Usage
 
-const App = () => {
+### `ContractsJS`
 
-  const save = async (id) => {
-      // id of the newly created template
-  }
-  
-  return (
-    <div>
-        <Contracts publishKey={"XXXXXXXXXXXXXX"} onSave={save} />
-    </div>
-  );
-};
+You can access all available function by importing and initializing ContractsJS class with your [Api Key](http://www.contracter.io) from your account
+```js
+import ContractsJS from 'contracter-js';
 
-ReactDOM.render(<App />, document.body);
+const apiKey = "XXXXXXXXXXXXXXXXXXXX";
+const contracts = new ContractsJS(apiKey);
 ```
+
+### Get contracts example
+
+```js
+import ContractsJS from 'contracter-js';
+
+const apiKey = "XXXXXXXXXXXXXXXXXXXX";
+const contracts = new ContractsJS(apiKey);
+
+const getContracts = async(e) => {
+    let [status, resp] = await contracts.getAll();
+    // status = Int: 200
+    // resp = Object: [{...}]
+}
+
+useEffect((e)=>{
+    getContracts()
+},[])
+```
+
+
+### Full documentation can be found on [Contracter.io](http://www.contracter.io)
+
 
 ### Minimum requirements
 
