@@ -1,39 +1,47 @@
 'use strict';
 
-import SubCustomers from "../lib/subCustomers";
-import Contract from "../lib/contract";
-import SentContracts from "../lib/sentContracts";
+import SubAccounts from "../lib/SubAccounts";
+import Templates from "../lib/Templates";
 import utils from "../lib/utils";
 import makeRequest from "../lib/makeRequest";
 
 
 class Contracts {
 
-   constructor(key,options = {}) {
+   constructor(key,subKey,options = {}) {
       this.key = key;
+      this.subKey = subKey;
       this.options = { ...options };
 
-      this.subCustomers = new SubCustomers(key);
-      this.contract = new Contract(key);
-      this.sent = new SentContracts(key);
+      this.subAccounts = new SubAccounts(key,subKey);
+      this.templates = new Templates(key,subKey);
    }
 
-   get(id) {
-      let isKeyValidated = utils.checkKey(this.key);
-      if(!isKeyValidated){return false;}
-
-      return makeRequest(this.key,{
-         method: 'GET',
-         path: '/contracts/'+id,
-      });
-   }
    getAll() {
       let isKeyValidated = utils.checkKey(this.key);
       if(!isKeyValidated){return false;}
 
-      return makeRequest(this.key,{
+      return makeRequest(this.key,this.subKey,{
          method: 'GET',
          path: '/contracts',
+      });
+   }
+   get(contractKey) {
+      let isKeyValidated = utils.checkKey(this.key);
+      if(!isKeyValidated){return false;}
+
+      return makeRequest(this.key,this.subKey,{
+         method: 'GET',
+         path: '/contracts/'+contractKey,
+      });
+   }
+   delete(contractKey) {
+      let isKeyValidated = utils.checkKey(this.key);
+      if(!isKeyValidated){return false;}
+
+      return makeRequest(this.key,this.subKey,{
+         method: 'DELETE',
+         path: '/contracts/'+contractKey,
       });
    }
 }
