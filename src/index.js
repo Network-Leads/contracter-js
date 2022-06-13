@@ -2,6 +2,7 @@
 
 import SubAccounts from "../lib/SubAccounts";
 import Templates from "../lib/Templates";
+import Marketplace from "../lib/Marketplace";
 import utils from "../lib/utils";
 import makeRequest from "../lib/makeRequest";
 
@@ -15,6 +16,7 @@ class Contracts {
 
       this.subAccounts = new SubAccounts(key,subKey);
       this.templates = new Templates(key,subKey);
+      this.marketplace = new Marketplace(key,subKey);
    }
 
    getAll() {
