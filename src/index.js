@@ -9,6 +9,7 @@ import makeRequest from "../lib/makeRequest";
 
 class Contracts {
 
+
    constructor(key,subKey,options = {}) {
       this.key = key;
       this.subKey = subKey;
